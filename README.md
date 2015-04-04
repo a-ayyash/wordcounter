@@ -33,6 +33,12 @@ When the console wizard concludes, you'd have the web app running locally at
 
 To run tests, simply navigate to the directory of the repo and run `rspec` 
 
+### Start/Stop:
+To start/stop/status the web app simply navigate to the directory and run 
+`./wordcounter` with the appropriate command
+
+Example:
+`./wordcounter start`
 
 ### TO-DO List:
 
