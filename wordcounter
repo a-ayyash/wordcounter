@@ -1,0 +1,72 @@
+#!/bin/bash
+
+
+start(){
+  echo "Starting WordCounter"
+  puma -C config/puma.rb
+}
+
+start_local(){
+  rackup
+}
+
+restart(){
+  stop
+  start
+}
+
+stop(){
+  if  [[ -e var/run/wordcounter.pid ]]; then
+    PID=`cat var/run/wordcounter.pid`
+    if ps -p $PID > /dev/null 
+    then
+      kill -9 $PID
+      echo "WordCounter has stopped"
+    else
+      echo "Service is not running"
+    fi
+  else
+    echo "Service is not running"
+  fi
+}
+
+status(){
+  if  [[ -e var/run/wordcounter.pid ]]; then
+    PID=`cat var/run/wordcounter.pid`
+    if ps -p $PID > /dev/null 
+    then
+      echo "WordCounter is running on: $PID"
+      cat tmp/wordcounter.state
+    else
+      echo "Service is not running"
+    fi
+  else
+    echo "Service is not running"
+  fi
+}
+
+
+case "$1" in
+
+  start)
+    start
+  ;;
+  
+  restart)
+    restart
+  ;;
+  
+  stop)
+    stop
+  ;;
+  
+  status)
+    status
+  ;;
+  
+  *)
+  echo "Usage{start}{restart}{stop}{status}"
+  exit 1
+esac
+
+exit 0

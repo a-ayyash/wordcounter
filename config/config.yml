@@ -1,0 +1,11 @@
+---
+production:
+  username: ayyash
+  database: wordcounter
+  password: ''
+  host: localhost
+test:
+  username: ayyash
+  database: wordcounter_test
+  password: ''
+  host: ''

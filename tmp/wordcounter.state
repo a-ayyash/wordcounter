@@ -1,0 +1,23 @@
+---
+pid: 48534
+config: !ruby/object:Puma::Configuration
+  options:
+    :min_threads: 0
+    :max_threads: 16
+    :quiet: false
+    :debug: false
+    :binds:
+    - tcp://0.0.0.0:9292
+    :workers: 0
+    :daemon: true
+    :worker_directory: "/Users/ayyash/Dropbox/Code/sinatra/wordcounter"
+    :config_file: config/puma.rb
+    :mode: :http
+    :worker_timeout: 60
+    :worker_shutdown_timeout: 30
+    :rackup: "/Users/ayyash/Dropbox/Code/sinatra/wordcounter/config.ru"
+    :environment: production
+    :pidfile: "/Users/ayyash/Dropbox/Code/sinatra/wordcounter/var/run/wordcounter.pid"
+    :state: "/Users/ayyash/Dropbox/Code/sinatra/wordcounter/tmp/wordcounter.state"
+    :control_auth_token: ad7ec0eabc7bded9299d2e85e61015
+    :tag: wordcounter
